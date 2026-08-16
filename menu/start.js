@@ -1,8 +1,7 @@
 /** @param {NS} ns */
 export async function main(ns) {
-  addscripts();
-  const scriptFarm = "in/xp.js";
-  const scriptHack = "in/money.js";
+  const scriptFarm = "in/xp.js"; // Grow&Weakenの繰り返しスクリプト
+  const scriptHack = "in/money.js"; // Hackの繰り返しスクリプト
   const costFarm = 2.1;
   const costHack = 1.7;
   const visited = new Set();
@@ -55,27 +54,4 @@ export async function main(ns) {
     }
     ns.tprint(`[OK] ${server}: 2.1GB x${bestT21}, 1.7GB x${bestT17} (使用RAM: ${maxUsedRam.toFixed(1)} / ${freeRam.toFixed(1)} GB)`);
   }
-}
-
-function addscripts(ns) {
-  ns.write("in/money.js", ` 
-export async function main(ns) {
-  const target = ns.args[0] || "joesguns";
-  while(true){
-    await ns.hack(target);
-  }
-}  
-`, "w");
-  ns.write("in/xp.js", `
-export async function main(ns) {
-  const target = ns.args[0] || "joesguns";
-  while (true) {
-    if (ns.getServerSecurityLevel(target) > ns.getServerMinSecurityLevel(target) + 2) {
-      await ns.weaken(target);
-    } else {
-      await ns.grow(target);
-    }
-  }
-}
-`, "w");
 }
