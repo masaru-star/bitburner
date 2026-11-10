@@ -1,7 +1,7 @@
 /** @param {NS} ns */
 export async function main(ns) {
-  const scriptFarm = "in/xp.js"; // Grow&Weakenの繰り返しスクリプト
-  const scriptHack = "in/money.js"; // Hackの繰り返しスクリプト
+  const scriptFarm = "xp-farm.js";
+  const scriptHack = "money.js";
   const costFarm = 2.1;
   const costHack = 1.7;
   const visited = new Set();
