@@ -1,0 +1,228 @@
+        /* === 共通・変数定義 === */
+        :root {
+            --bg-main: #0c0d10;
+            --bg-card: #15181e;
+            --bg-card-hover: #1e232d;
+            --border: #28303d;
+            --text-main: #e1e4e8;
+            --text-sub: #8b949e;
+            --accent-green: #00ff66;
+            --accent-cyan: #00e5ff;
+            --accent-purple: #bd93f9;
+            --accent-amber: #ffb86c;
+            --font-mono: "Fira Code", "Consolas", Monaco, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font-mono);
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* === ヘッダー === */
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .site-title {
+            font-size: 1.8rem;
+            color: var(--accent-green);
+        }
+
+        .site-title::before {
+            content: "> ";
+        }
+
+        .site-desc {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        .version-badge {
+            font-size: 0.8rem;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        /* === 検索バー === */
+        .search-box {
+            margin-bottom: 25px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 14px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent-green);
+        }
+
+        /* === レイアウト === */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* === セクション & カード === */
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--accent-green);
+            margin-bottom: 15px;
+            border-bottom: 1px stroke var(--border);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 14px;
+            display: block;
+            transition: background-color 0.15s, border-color 0.15s;
+        }
+
+        .card:hover {
+            background-color: var(--bg-card-hover);
+            border-color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        .card-title {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-desc {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
+
+        .badge {
+            font-size: 0.65rem;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .badge-green { background: rgba(0, 255, 102, 0.15); color: var(--accent-green); }
+        .badge-cyan { background: rgba(0, 229, 255, 0.15); color: var(--accent-cyan); }
+        .badge-purple { background: rgba(189, 147, 249, 0.15); color: var(--accent-purple); }
+
+        /* === サイドバー要素 === */
+        .cheat-sheet {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 12px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+        }
+
+        .cmd-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding-bottom: 4px;
+            border-bottom: 1px dashed var(--border);
+        }
+        .cmd-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .cmd-name {
+            color: var(--accent-amber);
+            font-weight: bold;
+        }
+
+        .cmd-info {
+            color: var(--text-sub);
+        }
+
+        .news-list {
+            list-style: none;
+            font-size: 0.8rem;
+        }
+
+        .news-item {
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .news-date {
+            color: var(--accent-purple);
+            font-size: 0.75rem;
+            display: block;
+        }
+
+        /* === フッター === */
+        footer {
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-sub);
+        }
